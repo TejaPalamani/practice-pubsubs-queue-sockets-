@@ -1,7 +1,7 @@
 import { createClient } from 'redis';
 import http from 'http';
 import { Server } from 'socket.io';
-import { time } from 'console';
+
 
 
 const httpServer = http.createServer();
@@ -19,7 +19,7 @@ const redisSubscriber = createClient();
                 const parsedData = JSON.parse(receivedData); 
                 console.log(`Data received from publisher: ${JSON.stringify(parsedData)}`);
                  //server side emit client side catch
-                io.emit("socketEmit", parsedData);
+                io.emit("socketEmit", parsedData); // now for complete socket// later for particular user 
                 console.log("Emitted the data to WebSocket clients.", new Date().toLocaleString());
             } catch (err) {
                 console.error("Error processing received data:", err.message);
