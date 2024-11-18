@@ -2,11 +2,8 @@ import { createClient } from 'redis';
 import http from 'http';
 import { Server } from 'socket.io';
 
-
-
 const httpServer = http.createServer();
 const io = new Server(httpServer);
-
 
 const redisSubscriber = createClient();
 
